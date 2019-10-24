@@ -1,0 +1,318 @@
+###############################################################################
+#
+# IAR ELF Linker V8.30.1.114/W32 for ARM                  19/Sep/2019  17:52:52
+# Copyright 2007-2018 IAR Systems AB.
+#
+#    Output file  =  
+#        C:\Users\DAELN\Downloads\S11_G07_Lab1_Versao2\S11_G07_Lab1\lab1\EK-TM4C1294_IAR8\Projects\Lab1\Debug\Exe\Lab1.out
+#    Map file     =  
+#        C:\Users\DAELN\Downloads\S11_G07_Lab1_Versao2\S11_G07_Lab1\lab1\EK-TM4C1294_IAR8\Projects\Lab1\Debug\List\Lab1.map
+#    Command line =  
+#        -f C:\Users\DAELN\AppData\Local\Temp\EWC15D.tmp
+#        (C:\Users\DAELN\Downloads\S11_G07_Lab1_Versao2\S11_G07_Lab1\lab1\EK-TM4C1294_IAR8\TivaWare_C_Series-2.1.4.178\driverlib\Debug\Exe\driverlib.a
+#        C:\Users\DAELN\Downloads\S11_G07_Lab1_Versao2\S11_G07_Lab1\lab1\EK-TM4C1294_IAR8\Projects\Lab1\Debug\Obj\lab1.o
+#        C:\Users\DAELN\Downloads\S11_G07_Lab1_Versao2\S11_G07_Lab1\lab1\EK-TM4C1294_IAR8\Projects\Lab1\Debug\Obj\startup_TM4C1294.o
+#        C:\Users\DAELN\Downloads\S11_G07_Lab1_Versao2\S11_G07_Lab1\lab1\EK-TM4C1294_IAR8\Projects\Lab1\Debug\Obj\system_TM4C1294_TW.o
+#        C:\Users\DAELN\Downloads\S11_G07_Lab1_Versao2\S11_G07_Lab1\lab1\EK-TM4C1294_IAR8\Projects\Lab1\Debug\Obj\uartstdio.o
+#        --no_out_extension -o
+#        C:\Users\DAELN\Downloads\S11_G07_Lab1_Versao2\S11_G07_Lab1\lab1\EK-TM4C1294_IAR8\Projects\Lab1\Debug\Exe\Lab1.out
+#        --map
+#        C:\Users\DAELN\Downloads\S11_G07_Lab1_Versao2\S11_G07_Lab1\lab1\EK-TM4C1294_IAR8\Projects\Lab1\Debug\List\Lab1.map
+#        --config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.1\arm\config\linker\TexasInstruments\TM4C1294NC.icf" --semihosting
+#        --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0xf'ffff] { ro };
+define block CSTACK with size = 32K, alignment = 8 { };
+define block HEAP with size = 64K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2003'ffff] {
+          rw, block CSTACK, block HEAP };
+
+  Section          Kind         Address    Size  Object
+  -------          ----         -------    ----  ------
+"A0":                                     0x3c0
+  .intvec          ro code          0x0   0x3c0  startup_TM4C1294.o [1]
+                                - 0x3c0   0x3c0
+
+"P1":                                    0x18c4
+  .text            ro code        0x3c0   0x570  uartstdio.o [1]
+  .text            ro code        0x930    0xf8  interrupt.o [3]
+  .text            ro code        0xa28   0x118  uart.o [3]
+  .text            ro code        0xb40   0x4f8  sysctl.o [3]
+  .text            ro code       0x1038    0x10  cpu.o [3]
+  .text            ro code       0x1048   0x24c  gpio.o [3]
+  .text            ro code       0x1294   0x246  DblDiv.o [4]
+  .text            ro code       0x14da    0x3a  zero_init3.o [5]
+  .text            ro code       0x1514   0x1c0  lab1.o [1]
+  .text            ro code       0x16d4   0x1a2  DblMul.o [4]
+  .text            ro code       0x1876     0x2  startup_TM4C1294.o [1]
+  .text            ro code       0x1878    0x22  S32ToDbl.o [4]
+  .text            ro code       0x189c   0x17a  DblAdd.o [4]
+  .text            ro code       0x1a18    0x3a  DblToS32.o [4]
+  .text            ro code       0x1a54    0xd2  DblSub.o [4]
+  .rodata          const         0x1b28    0x4c  lab1.o [1]
+  .text            ro code       0x1b74    0x2c  system_TM4C1294_TW.o [1]
+  .text            ro code       0x1ba0    0x28  data_init.o [5]
+  .iar.init_table  const         0x1bc8    0x10  - Linker created -
+  .text            ro code       0x1bd8    0x1e  cmain.o [5]
+  .text            ro code       0x1bf6     0x4  low_level_init.o [2]
+  .text            ro code       0x1bfa     0x4  exit.o [2]
+  .text            ro code       0x1c00     0xa  cexit.o [5]
+  .text            ro code       0x1c0c    0x14  exit.o [6]
+  .rodata          const         0x1c20    0x14  uartstdio.o [1]
+  .text            ro code       0x1c34    0x14  startup_TM4C1294.o [1]
+  .rodata          const         0x1c48     0xc  uartstdio.o [1]
+  .rodata          const         0x1c54     0xc  uartstdio.o [1]
+  .rodata          const         0x1c60     0xc  uartstdio.o [1]
+  .text            ro code       0x1c6c     0xc  cstartup_M.o [5]
+  .rodata          const         0x1c78     0x8  uartstdio.o [1]
+  .rodata          const         0x1c80     0x4  uartstdio.o [1]
+  .rodata          const         0x1c84     0x0  zero_init3.o [5]
+                               - 0x1c84  0x18c4
+
+"P2", part 1 of 2:                        0x49c
+  .bss             zero     0x2000'0000   0x400  uartstdio.o [1]
+  .bss             zero     0x2000'0400    0x80  uartstdio.o [1]
+  .bss             zero     0x2000'0480     0x4  uartstdio.o [1]
+  .bss             zero     0x2000'0484     0x4  uartstdio.o [1]
+  .bss             zero     0x2000'0488     0x4  uartstdio.o [1]
+  .bss             zero     0x2000'048c     0x4  uartstdio.o [1]
+  .bss             zero     0x2000'0490     0x4  uartstdio.o [1]
+  .bss             zero     0x2000'0494     0x4  uartstdio.o [1]
+  .bss             zero     0x2000'0498     0x1  uartstdio.o [1]
+  .bss             zero     0x2000'0499     0x1  uartstdio.o [1]
+                          - 0x2000'049a   0x49a
+
+"P2", part 2 of 2:                       0x8004
+  .noinit          uninit   0x2000'049c     0x4  system_TM4C1294_TW.o [1]
+  CSTACK                    0x2000'04a0  0x8000  <Block>
+    CSTACK         uninit   0x2000'04a0  0x8000  <Block tail>
+                          - 0x2000'84a0  0x8004
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+       0x1c84     0xf'ffff  0xf'e37c
+  0x2000'84a0  0x2003'ffff  0x3'7b60
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x49a:
+          0x2000'0000  0x49a
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                ro code  ro data  rw data
+    ------                -------  -------  -------
+command line/config:
+    -----------------------------------------------
+    Total:
+
+C:\Users\DAELN\Downloads\S11_G07_Lab1_Versao2\S11_G07_Lab1\lab1\EK-TM4C1294_IAR8\Projects\Lab1\Debug\Obj: [1]
+    lab1.o                    448       76
+    startup_TM4C1294.o        982
+    system_TM4C1294_TW.o       44                 4
+    uartstdio.o             1 392       68    1 178
+    -----------------------------------------------
+    Total:                  2 866      144    1 182
+
+dl7M_tln.a: [2]
+    exit.o                      4
+    low_level_init.o            4
+    -----------------------------------------------
+    Total:                      8
+
+driverlib.a: [3]
+    cpu.o                      16
+    gpio.o                    588
+    interrupt.o               248
+    sysctl.o                1 272
+    uart.o                    280
+    -----------------------------------------------
+    Total:                  2 404
+
+m7M_tls.a: [4]
+    DblAdd.o                  378
+    DblDiv.o                  582
+    DblMul.o                  418
+    DblSub.o                  210
+    DblToS32.o                 58
+    S32ToDbl.o                 34
+    -----------------------------------------------
+    Total:                  1 680
+
+rt7M_tl.a: [5]
+    cexit.o                    10
+    cmain.o                    30
+    cstartup_M.o               12
+    data_init.o                40
+    zero_init3.o               58
+    -----------------------------------------------
+    Total:                    150
+
+shb_l.a: [6]
+    exit.o                     20
+    -----------------------------------------------
+    Total:                     20
+
+    Gaps                       10        2
+    Linker created                      16   32 768
+---------------------------------------------------
+    Grand Total:            7 138      162   33 950
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base        0x1bc8          --   Gb  - Linker created -
+.iar.init_table$$Limit       0x1bd8          --   Gb  - Linker created -
+?main                        0x1bd9         Code  Gb  cmain.o [5]
+CPUcpsid                     0x1039    0x8  Code  Gb  cpu.o [3]
+CPUcpsie                     0x1041    0x8  Code  Gb  cpu.o [3]
+CSTACK$$Base            0x2000'04a0          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'84a0          --   Gb  - Linker created -
+GPIODirModeSet               0x1049   0x28  Code  Gb  gpio.o [3]
+GPIOPadConfigSet             0x1071  0x114  Code  Gb  gpio.o [3]
+GPIOPinConfigure             0x11c9   0x36  Code  Gb  gpio.o [3]
+GPIOPinRead                  0x1185    0x8  Code  Gb  gpio.o [3]
+GPIOPinTypeGPIOInput         0x1191   0x14  Code  Gb  gpio.o [3]
+GPIOPinTypeUART              0x11ad   0x14  Code  Gb  gpio.o [3]
+IntDisable                    0x9a1   0x56  Code  Gb  interrupt.o [3]
+IntEnable                     0x949   0x56  Code  Gb  interrupt.o [3]
+IntMasterDisable              0x939    0x6  Code  Gb  interrupt.o [3]
+IntMasterEnable               0x931    0x8  Code  Gb  interrupt.o [3]
+IsBufferEmpty                 0x3dd   0x12  Code  Lc  uartstdio.o [1]
+IsBufferFull                  0x3c1   0x1c  Code  Lc  uartstdio.o [1]
+Region$$Table$$Base          0x1bc8          --   Gb  - Linker created -
+Region$$Table$$Limit         0x1bd8          --   Gb  - Linker created -
+SysCtlClockFreqSet            0xbab  0x208  Code  Gb  sysctl.o [3]
+SysCtlPeripheralEnable        0xb8d    0x8  Code  Gb  sysctl.o [3]
+SysCtlPeripheralPresent
+                              0xb61    0xa  Code  Gb  sysctl.o [3]
+SysCtlPeripheralReady         0xb6b    0x8  Code  Gb  sysctl.o [3]
+SystemCoreClock         0x2000'049c    0x4  Data  Gb  system_TM4C1294_TW.o [1]
+SystemInit                   0x1b75   0x1a  Code  Gb  system_TM4C1294_TW.o [1]
+UART0_Handler                0x1563    0x8  Code  Gb  lab1.o [1]
+UARTCharGetNonBlocking        0xaf3   0x14  Code  Gb  uart.o [3]
+UARTCharPutNonBlocking        0xb07   0x16  Code  Gb  uart.o [3]
+UARTCharsAvail                0xadb    0x8  Code  Gb  uart.o [3]
+UARTConfigSetExpClk           0xa31   0x5e  Code  Gb  uart.o [3]
+UARTDisable                   0xaa9   0x26  Code  Gb  uart.o [3]
+UARTEnable                    0xa8f   0x1a  Code  Gb  uart.o [3]
+UARTFIFOLevelSet              0xa29    0x8  Code  Gb  uart.o [3]
+UARTFlushRx                   0x769   0x1c  Code  Gb  uartstdio.o [1]
+UARTFlushTx                   0x785   0x30  Code  Gb  uartstdio.o [1]
+UARTInit                     0x1515   0x4e  Code  Gb  lab1.o [1]
+UARTIntClear                  0xb3b    0x6  Code  Gb  uart.o [3]
+UARTIntDisable                0xb23    0x4  Code  Gb  uart.o [3]
+UARTIntEnable                 0xb1d    0x6  Code  Gb  uart.o [3]
+UARTIntStatus                 0xb2f    0xc  Code  Gb  uart.o [3]
+UARTPrimeTransmit             0x3ef   0x7a  Code  Lc  uartstdio.o [1]
+UARTSpaceAvail                0xae3    0x6  Code  Gb  uart.o [3]
+UARTStdioConfig               0x469   0x92  Code  Gb  uartstdio.o [1]
+UARTStdioIntHandler           0x7b9  0x132  Code  Gb  uartstdio.o [1]
+UARTStdioIntHandler::bLastWasCR
+                        0x2000'0499    0x1  Data  Lc  uartstdio.o [1]
+UARTprintf                    0x75b    0xe  Code  Gb  uartstdio.o [1]
+UARTvprintf                   0x5a5  0x1b6  Code  Gb  uartstdio.o [1]
+UARTwrite                     0x4fb   0xaa  Code  Gb  uartstdio.o [1]
+_SysCtlMemTimingGet           0xb41   0x20  Code  Lc  sysctl.o [3]
+__Vectors                       0x0          --   Gb  startup_TM4C1294.o [1]
+__Vectors_End                 0x3c0         Data  Gb  startup_TM4C1294.o [1]
+__Vectors_Size {Abs}          0x3c0          --   Gb  startup_TM4C1294.o [1]
+__aeabi_d2iz                 0x1a19         Code  Gb  DblToS32.o [4]
+__aeabi_dadd                 0x189d         Code  Gb  DblAdd.o [4]
+__aeabi_ddiv                 0x1295         Code  Gb  DblDiv.o [4]
+__aeabi_dmul                 0x16d5         Code  Gb  DblMul.o [4]
+__aeabi_i2d                  0x1879         Code  Gb  S32ToDbl.o [4]
+__cmain                      0x1bd9         Code  Gb  cmain.o [5]
+__exit                       0x1c0d   0x14  Code  Gb  exit.o [6]
+__iar_dadd                   0x1a55         Code  Gb  DblSub.o [4]
+__iar_data_init3             0x1ba1   0x28  Code  Gb  data_init.o [5]
+__iar_dsub                   0x18ad         Code  Gb  DblAdd.o [4]
+__iar_dsubStart              0x18bf         Code  Gb  DblAdd.o [4]
+__iar_init_vfp               0x1c3d         Code  Wk  startup_TM4C1294.o [1]
+__iar_program_start          0x1c6d         Code  Gb  cstartup_M.o [5]
+__iar_zero_init3             0x14db   0x3a  Code  Gb  zero_init3.o [5]
+__low_level_init             0x1bf7    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0         Data  Gb  startup_TM4C1294.o [1]
+__vector_table_0x1c            0x1c         Data  Gb  startup_TM4C1294.o [1]
+_call_main                   0x1be5         Code  Gb  cmain.o [5]
+_exit                        0x1c01         Code  Gb  cexit.o [5]
+_main                        0x1bf3         Code  Gb  cmain.o [5]
+exit                         0x1bfb    0x4  Code  Gb  exit.o [2]
+g_bDisableEcho          0x2000'0498    0x1  Data  Lc  uartstdio.o [1]
+g_pcHex                      0x1c80    0x4  Data  Lc  uartstdio.o [1]
+g_pcUARTRxBuffer        0x2000'0400   0x80  Data  Lc  uartstdio.o [1]
+g_pcUARTTxBuffer        0x2000'0000  0x400  Data  Lc  uartstdio.o [1]
+g_pppui32XTALtoVCO            0xe50  0x1b0  Data  Lc  sysctl.o [3]
+g_pui32Dii16Regs              0xa14   0x14  Data  Lc  interrupt.o [3]
+g_pui32EnRegs                 0xa00   0x14  Data  Lc  interrupt.o [3]
+g_pui32GPIOBaseAddrs         0x1204   0x90  Data  Lc  gpio.o [3]
+g_pui32VCOFrequencies        0x1030    0x8  Data  Lc  sysctl.o [3]
+g_pui32Xtals                  0xde4   0x6c  Data  Lc  sysctl.o [3]
+g_sXTALtoMEMTIM              0x1000   0x30  Data  Lc  sysctl.o [3]
+g_ui32Base              0x2000'0490    0x4  Data  Lc  uartstdio.o [1]
+g_ui32PortNum           0x2000'0494    0x4  Data  Lc  uartstdio.o [1]
+g_ui32UARTBase               0x1c48    0xc  Data  Lc  uartstdio.o [1]
+g_ui32UARTInt                0x1c54    0xc  Data  Lc  uartstdio.o [1]
+g_ui32UARTPeriph             0x1c60    0xc  Data  Lc  uartstdio.o [1]
+g_ui32UARTRxReadIndex   0x2000'048c    0x4  Data  Lc  uartstdio.o [1]
+g_ui32UARTRxWriteIndex  0x2000'0488    0x4  Data  Lc  uartstdio.o [1]
+g_ui32UARTTxReadIndex   0x2000'0484    0x4  Data  Lc  uartstdio.o [1]
+g_ui32UARTTxWriteIndex  0x2000'0480    0x4  Data  Lc  uartstdio.o [1]
+main                         0x156d  0x132  Code  Gb  lab1.o [1]
+
+
+[1] = C:\Users\DAELN\Downloads\S11_G07_Lab1_Versao2\S11_G07_Lab1\lab1\EK-TM4C1294_IAR8\Projects\Lab1\Debug\Obj
+[2] = dl7M_tln.a
+[3] = driverlib.a
+[4] = m7M_tls.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+   7 138 bytes of readonly  code memory
+     162 bytes of readonly  data memory
+  33 950 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
