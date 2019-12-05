@@ -15,7 +15,7 @@
 
 
 osThreadId_t elevador_esq_id, elevador_cen_id, elevador_dir_id, UART_READ_id, UART_WRITE_id;
-osTimerId_t timer_esq_id,timer_cen_id,timer_dir_id;
+
 osMessageQueueId_t fila_esq_id,fila_dir_id,fila_cen_id,fila_envio_id;
 
 extern void UARTStdioIntHandler(void);
@@ -32,9 +32,7 @@ typedef struct {
   osMessageQueueId_t fila;  
 }elevador_estrutura;
 
-void callback(void *arg){
-  
-} 
+
 
 int letra2andar(char letter)
 {
@@ -497,9 +495,7 @@ void main(void){
   UART_READ_id= osThreadNew(UART_READ, NULL, NULL);
   UART_WRITE_id= osThreadNew(UART_WRITE, NULL, NULL);
   
-  timer_esq_id = osTimerNew(callback, osTimerOnce , NULL, NULL);
-  timer_cen_id = osTimerNew(callback, osTimerOnce , NULL, NULL);
-  timer_dir_id = osTimerNew(callback, osTimerOnce , NULL, NULL);
+  
   
   fila_dir_id =  osMessageQueueNew (15, sizeof(char)*6,NULL);
   fila_cen_id =  osMessageQueueNew (15, sizeof(char)*6,NULL); 
