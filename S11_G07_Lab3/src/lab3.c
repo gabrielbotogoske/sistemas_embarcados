@@ -155,11 +155,11 @@ void parar(char posicao)
 void atender_andar(elevador_estrutura e)
 {
     parar(e.posicao);
-    osDelay(5000);
+    osDelay(800);
     abrir(e.posicao,e.fila);
-    osDelay(5000);
+    osDelay(800);
     fechar(e.posicao,e.fila);
-    osDelay(5000);
+    osDelay(500);
 }
 
 bool chamadas_acima(elevador_estrutura e)
@@ -189,7 +189,7 @@ bool chamadas_abaixo(elevador_estrutura e)
 {
   uint16_t mascara=(0x1<<e.andar+1)-1;
   e.chamadas&=mascara;
-  if(e.chamadas<(0x1<<e.andar))
+  if(e.chamadas>0)
   {
     return true;
   }
@@ -284,7 +284,7 @@ void elevador(void *arg){
       {
           if(sentido_desejado=='s')
           {
-              if(andar_desejado>=e.andar)
+              if(andar_desejado>e.andar)
               {
                   prencher_parada(&e,andar_desejado);
               }
@@ -306,7 +306,7 @@ void elevador(void *arg){
           }
           else //sentido_desejado == 'd'
           {
-              if(andar_desejado<=e.andar)
+              if(andar_desejado<e.andar)
               {
                  prencher_parada(&e,andar_desejado);
               }
@@ -341,7 +341,7 @@ void elevador(void *arg){
       }
        else if(e.estado==subindo)
       {
-           if(andar_desejado>=e.andar)
+           if(andar_desejado>e.andar)
            {
               prencher_parada(&e,andar_desejado);
            }
@@ -352,7 +352,7 @@ void elevador(void *arg){
        }
         else //e.estado==descendo
         {
-           if(andar_desejado<=e.andar)
+           if(andar_desejado<e.andar)
            {
              prencher_parada(&e,andar_desejado);
            }
@@ -366,10 +366,11 @@ void elevador(void *arg){
     else if(msg[1]>='0' && msg[1]<='9') //informação  do andar
     {
         e.andar=lerandar(msg[2],msg[1]);
-        if(comparar_andar(e.andar, e.paradas))
+        if(comparar_andar(e.andar, e.paradas))//andar desejado
         {
             atender_andar(e);
             retirar_parada(&e);
+            retirar_chamada(&e,e.andar);
             if(esvaziou_parada(e.paradas))//true
             {
                 if(esvaziou_parada(e.chamadas))//fica parado
@@ -388,6 +389,7 @@ void elevador(void *arg){
                       }
                       else // pode inverter o sentido
                       {
+                          e.estado=descendo;
                           chamadas2paradas(&e);
                           descer(e.posicao);
                       }
@@ -401,6 +403,7 @@ void elevador(void *arg){
                       }
                       else // pode inverter o sentido
                       {
+                          e.estado=subindo;
                           chamadas2paradas(&e);
                           subir(e.posicao);
                       }
@@ -420,8 +423,8 @@ void elevador(void *arg){
                 }
             }
         }
-        //if a lista de paradas esvaziou
-        //--> ficar parado/transferir(parte) da lista de chamadas para a lista de paradas
+
+
     }
   } 
 } 

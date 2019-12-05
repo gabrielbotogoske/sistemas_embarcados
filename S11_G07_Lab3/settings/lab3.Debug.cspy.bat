@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "C:\Users\Gabola\OneDrive\UTFPR\Eng\8 periodo\sist embarcados\elevador\elevator\EK-TM4C1294_SCHED_IAR8\Projects\lab3\settings\lab3.Debug.general.xcl" --backend -f "C:\Users\Gabola\OneDrive\UTFPR\Eng\8 periodo\sist embarcados\elevador\elevator\EK-TM4C1294_SCHED_IAR8\Projects\lab3\settings\lab3.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\common\bin\cspybat" -f "C:\Users\DAELN\Downloads\elevador_v2\elevador\elevator\EK-TM4C1294_SCHED_IAR8\Projects\lab3\settings\lab3.Debug.general.xcl" --backend -f "C:\Users\DAELN\Downloads\elevador_v2\elevador\elevator\EK-TM4C1294_SCHED_IAR8\Projects\lab3\settings\lab3.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "C:\Users\Gabola\OneDrive\UTFPR\Eng\8 periodo\sist embarcados\elevador\elevator\EK-TM4C1294_SCHED_IAR8\Projects\lab3\settings\lab3.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\Gabola\OneDrive\UTFPR\Eng\8 periodo\sist embarcados\elevador\elevator\EK-TM4C1294_SCHED_IAR8\Projects\lab3\settings\lab3.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\common\bin\cspybat" -f "C:\Users\DAELN\Downloads\elevador_v2\elevador\elevator\EK-TM4C1294_SCHED_IAR8\Projects\lab3\settings\lab3.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\DAELN\Downloads\elevador_v2\elevador\elevator\EK-TM4C1294_SCHED_IAR8\Projects\lab3\settings\lab3.Debug.driver.xcl" 
 
 @echo off 
 :end
